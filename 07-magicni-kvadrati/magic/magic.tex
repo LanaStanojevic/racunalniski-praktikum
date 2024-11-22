@@ -15,6 +15,19 @@
 \usepackage{booktabs} % za lepše tabele
 \usepackage{multirow} % za vnose v tabeli čez več vrstic
 
+\newcommand{\m}{\mathcal}
+
+\newenvironment{magic}[3]{
+   \begin{table}
+      \centering
+      \caption{#2}
+      \label{#3}
+      \Large
+      \begin{tabular}{|*{#1}{c|}}\hline
+}{
+\end{tabular}
+\end{table}
+}
 
 {\theoremstyle{plain}
 \newtheorem{izrek}{Izrek}[section]
@@ -92,15 +105,16 @@ Primer magičnega kvadrata reda 3 je prikazan v tabeli ?!?.
 
 % - napis nad tabelo: Magični kvadrat reda 3
 % - oznaka: table:mag3
-% Začetek magičnega kvadrata
-%   8 & 1 & 6 \\\hline
-%   3 & 5 & 7 \\\hline
-%   4 & 9 & 2 \\\hline
-% Konec magičnega kvadrata
+ \begin{magic}{3}{Magični kvadrat reda 3}{table:mag3}
+   8 & 1 & 6 \\\hline
+   3 & 5 & 7 \\\hline
+   4 & 9 & 2 \\\hline
+ \end{magic}
 
 \begin{definicija}
    Magični kvadrat reda $n$ je \emph{normalen}, če v njem nastopajo števila
    \begin{equation}
+      \label{eq:numbers}
       % oznaka: eq:numbers
       1, 2, 3, \ldots, n^2-1, n^2.
    \end{equation}
@@ -128,11 +142,11 @@ reke.
 
 % - napis nad tabelo: Kvadrat Lo Shu
 % - oznaka: table:loshu
-% Začetek magičnega kvadrata
-%   4 & 9 & 2 \\\hline
-%   3 & 5 & 7 \\\hline
-%   8 & 1 & 6 \\\hline
-% Konec magičnega kvadrata
+ \begin{magic}{3}{Kvadrat Lo Shu}{table:loshu}
+   4 & 9 & 2 \\\hline
+   3 & 5 & 7 \\\hline
+   8 & 1 & 6 \\\hline
+ \end{magic}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -149,11 +163,11 @@ Lo Shu, vendar je vsako število povečano za 19.
 
 % - napis nad tabelo: Kvadrat Kubera-Kolam
 % - oznaka: table:kubera
-% Konec magičnega kvadrata
-%   23 & 28 & 21 \\\hline
-%   22 & 24 & 26 \\\hline
-%   27 & 20 & 25 \\\hline
-% Konec magičnega kvadrata
+ \begin{magic}{3}{Kvadrat Kubera-Kolam}{kubera}
+   23 & 28 & 21 \\\hline
+   22 & 24 & 26 \\\hline
+   27 & 20 & 25 \\\hline
+ \end{magic}
 
 Z magičnimi kvadrati so se ukvarjali tudi najbolj znani matematiki kot na
 primer Euler, glej \cite{euler}
@@ -167,7 +181,7 @@ v Khajurahu v Indiji in v Enciklopediji Bratovščine Čistosti iz enajstega
 ali dvanajstega stoletja. Vrh vsega gre celo za ">panmagični kvadrat"<.
 V Evropi sta morda najbolj znana naslednja magična kvadrata reda 4:
 
-Magični kvadrat v litografiji Melancholia I (glej sliko ??
+Magični kvadrat v litografiji Melancholia I (glej sliko \ref{fig:durer}
 za izsek s kvadratom) Albrechta Dürerja naj bi bil najzgodnejši magični kvadrat
 v evropski umetnosti. Zelo podoben je kvadratu Yang Huija, ki je nastal na Kitajskem
 približno 250 let pred Dürerjevim časom. % sklic: fig:durer
@@ -196,22 +210,19 @@ simetričnih parov ($2+8+9+15$ in $3+5+12+14$), in še na nekaj drugih načinov.
 % - oznaka: table:durer
 
 
-\begin{table}
-   \caption{ Dürerjev magični kvadrat $4\times 4$}
-   \label{table:durer}
-   \begin{tabular}{|c|c|c|c|}\toprule
-         16 &  3 &  2 & 13 \\\midrule
-          5 & 10 & 11 &  8 \\\midrule
-          9 &  6 &  7 & 12 \\\midrule
-          4 & 15 & 14 &  1 \\\bottomrule
-   \end{tabular}
-\end{table}
+\begin{magic}{4}{Dürerjev magični kvadrat $4\times 4$}{table:durer}
+         16 &  3 &  2 & 13 \\\hline
+          5 & 10 & 11 &  8 \\\hline
+          9 &  6 &  7 & 12 \\\hline
+          4 & 15 & 14 &  1 \\\hline
+\end{magic}
 
 Pasijonska fasada na katedrali Sagrada família v Barceloni
-(glej sliko ?? za fotografijo) vsebuje magični kvadrat reda 4.
+(glej sliko \ref{fig:sagrada} za fotografijo) vsebuje magični kvadrat reda 4.
 % sklic: fig:sagrada
 
-% Tu vstavite sliko
+% Tu vstavite 
+sliko
 % - napis nad sliko: Pasijonska fasada, Sagrada Família
 % - oznaka: fig:sagrada
 \begin{figure}[!ht]
@@ -229,10 +240,19 @@ in zato kvadrat ni normalen.
 %
 % - napis nad tabelo: Pasijonska fasada, Sagrada Família
 % - oznaka: table:sagrada
-%    1 & 14 & 14 &  4 \\\hline
-%   11 &  7 &  6 &  9 \\\hline
-%    8 & 10 & 10 &  5 \\\hline
-%   13 &  2 &  3 & 15 \\\hline
+
+
+\begin{table}
+   \centering
+   \caption{Pasijonska fasada, Sagrada Família}
+   \label{table:sagrada}
+   \begin{tabular}{|c|c|c|c|}}\hline
+         1 & 14 & 14 &  4 \\\hline
+         11 &  7 &  6 &  9 \\\hline
+         8 & 10 & 10 &  5 \\\hline
+         13 &  2 &  3 & 15 \\\hline
+   \end{tabular}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -244,28 +264,29 @@ in zato kvadrat ni normalen.
 \end{definicija}
 
 \begin{izrek}
-   Magična konstanta normalnega magičnega kvadrata reda !!
+   Magična konstanta normalnega magičnega kvadrata reda  \(n \)
    je enaka
    \begin{equation}
+      \label{eq:mc}
       % oznaka: eq:mc
-      M_2(n) = \frac{1}{2} n(n^2+1)
+      \mathcal{M}_2(n) = \frac{1}{2} n(n^2+1)
    \end{equation}
 \end{izrek}
 
 
 \begin{proof}
       V normalnem magičnem kvadratu reda $n$ je vsota vseh nastopajočih
-      števil (glej ?? na strani ??) enaka
+      števil (glej \ref{eq:numbers} na strani \pageref{eq:numbers}) enaka
       $1+2+3+\dots+n^2=\sum_{k=1}^{n^2}k=\frac{1}{2}n^2(n^2+1)$. Ker imamo
       v kvadratu $n$ vrstic z enako vsoto, je vsota števil v eni vrstici
-      enaka številu $M_2(n)$. % sklica: eq:numbers, eq:numbers
+      enaka številu $\m{M_2}(n)$. % sklica: eq:numbers, eq:numbers
 \end{proof}
 % Konec dokaza
 
-Preprost račun pokaže, da je konstanti ?? analogna konstanta
-$M_2(n;A,D)$ za magični kvadrat, v katerem so nameščena števila
+Preprost račun pokaže, da je konstanti \ref{eq:mc} analogna konstanta
+$\m{M_2}(n;A,D)$ za magični kvadrat, v katerem so nameščena števila
 $A$, $A+D$, $A+2D$, \dots, $A+(n^2-1)D$, enaka % sklic: eq:mc
-!!
+ \(n \)
 Kvadratu v tabeli ?!? ustrezata konstanti $A=20$ in $D=1$.
 
 \begin{definicija}
@@ -279,9 +300,21 @@ komplementarni kvadrat, prikazan v tabeli ?!?.
 %
 % - napis nad tabelo: Kvadratu Lo Shu komplementarni kvadrat
 % - oznaka: ttable:closhu
-%   6 & 1 & 8 \\\hline
-%   7 & 5 & 3 \\\hline
-%   2 & 9 & 4 \\\hline
+
+
+
+
+\begin{table}
+   \centering
+   \caption{ Kvadratu Lo Shu komplementarni kvadrat}
+   \label{ttable:closhu}
+   \begin{tabuluar}{|c|c|c|}\hline
+         6 & 1 & 8 \\\hline
+         7 & 5 & 3 \\\hline
+         2 & 9 & 4 \\\hline
+   \end{tabuluar}
+\end{table}
+
 
 Vidimo, da je dobljeni kvadrat moč dobiti iz kvadrata Lo Shu tudi z zasukom za
 180 stopinj okrog središča, kvadrat iz tabele ?!? pa je mogoče dobiti
@@ -294,11 +327,13 @@ iz kvadrata Lo Shu z zrcaljenjem preko sredinske vodoravne črte.
       iz drugega s pomočjo zasukov oziroma zrcaljenj.
 \end{definicija}
 
-Števila različnih normalnih magičnih kvadratov se nahajajo v tabeli ??.
+Števila različnih normalnih magičnih kvadratov se nahajajo v tabel\ref{table:stevila}?.
 % sklic: table:stevila
 
 % - napis nad tabelo: Število različnih normalnih magičnih kvadratov
 % - oznaka: table:stevila
+
+
 
 
 \begin{table}
@@ -307,12 +342,13 @@ iz kvadrata Lo Shu z zrcaljenjem preko sredinske vodoravne črte.
       \label{table:stevila}
          & \multicolumn{5}{c}{točna vrednost} & približek\\ \midrule
          red &1 &2 &3 &4 &5& 6\\
-         število kvadratov& 1 &0 &1& 880& 275305224 &!!\\
+         število kvadratov& 1 &0 &1& 880& 275305224 & \(n \)\\
          \bottomrule
    \end{tabular}
    \centering
    \caption{Število različnih normalnih magičnih kvadratov}
 \end{table}
+
 
 Vse normalne magične kvadrate reda 4 je oštevilčil Frénicle de Bessy
 leta 1693, glej ???, in jih je moč najti v knjigi ???
